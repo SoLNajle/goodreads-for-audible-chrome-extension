@@ -1,0 +1,32 @@
+{
+    "manifest_version": 3,
+    "name": "Goodreads for Audible",
+    "version": "1.0",
+    "description": "See Goodreads information in Audible",
+    "icons": {
+        "48": "/assets/icon.png"
+    },
+    "permissions": [
+        "activeTab",
+        "webNavigation"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://audible.es/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": ["search-goodreads.js"],
+            "matches": ["<all_urls>"]
+        }
+    ]
+}
